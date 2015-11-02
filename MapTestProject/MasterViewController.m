@@ -32,6 +32,21 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    
+    NSURL *path =  [[NSBundle mainBundle] URLForResource:@"Directions" withExtension:@"geojson"];
+    NSData *data = [NSData dataWithContentsOfURL:path];
+    NSError *error = nil;
+    NSArray * array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error == nil) {
+        NSLog(@"Json:\n%@", array);
+    } else {
+        NSLog(@"error %@", [error localizedDescription]);
+    }
+    
+    path = [[NSBundle mainBundle] URLForResource:@"PropertyList" withExtension:@"plist"];
+    NSArray *dict = [NSArray arrayWithContentsOfURL:path];
+    NSLog(@"Plist:\n%@", dict);
 }
 
 - (void)didReceiveMemoryWarning {

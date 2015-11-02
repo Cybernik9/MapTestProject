@@ -15,6 +15,9 @@
 		7FF7B5091BE78DB0003A3BE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B5081BE78DB0003A3BE3 /* Images.xcassets */; };
 		7FF7B50C1BE78DB0003A3BE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B50A1BE78DB0003A3BE3 /* LaunchScreen.xib */; };
 		7FF7B5181BE78DB0003A3BE3 /* MapTestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7B5171BE78DB0003A3BE3 /* MapTestProjectTests.m */; };
+		7FF7B5221BE78E5F003A3BE3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF7B5211BE78E5F003A3BE3 /* MapKit.framework */; };
+		7FF7B5241BE78EC4003A3BE3 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B5231BE78EC4003A3BE3 /* PropertyList.plist */; };
+		7FF7B5261BE791EA003A3BE3 /* Directions.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B5251BE78EFC003A3BE3 /* Directions.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		7FF7B5111BE78DB0003A3BE3 /* MapTestProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapTestProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF7B5161BE78DB0003A3BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FF7B5171BE78DB0003A3BE3 /* MapTestProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTestProjectTests.m; sourceTree = "<group>"; };
+		7FF7B5211BE78E5F003A3BE3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7FF7B5231BE78EC4003A3BE3 /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
+		7FF7B5251BE78EFC003A3BE3 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF7B5221BE78E5F003A3BE3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +73,9 @@
 		7FF7B4EC1BE78DB0003A3BE3 = {
 			isa = PBXGroup;
 			children = (
+				7FF7B5251BE78EFC003A3BE3 /* Directions.geojson */,
+				7FF7B5231BE78EC4003A3BE3 /* PropertyList.plist */,
+				7FF7B5211BE78E5F003A3BE3 /* MapKit.framework */,
 				7FF7B4F71BE78DB0003A3BE3 /* MapTestProject */,
 				7FF7B5141BE78DB0003A3BE3 /* MapTestProjectTests */,
 				7FF7B4F61BE78DB0003A3BE3 /* Products */,
@@ -204,7 +214,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF7B5261BE791EA003A3BE3 /* Directions.geojson in Resources */,
 				7FF7B5071BE78DB0003A3BE3 /* Main.storyboard in Resources */,
+				7FF7B5241BE78EC4003A3BE3 /* PropertyList.plist in Resources */,
 				7FF7B50C1BE78DB0003A3BE3 /* LaunchScreen.xib in Resources */,
 				7FF7B5091BE78DB0003A3BE3 /* Images.xcassets in Resources */,
 			);
