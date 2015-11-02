@@ -18,6 +18,8 @@
 		7FF7B5221BE78E5F003A3BE3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF7B5211BE78E5F003A3BE3 /* MapKit.framework */; };
 		7FF7B5241BE78EC4003A3BE3 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B5231BE78EC4003A3BE3 /* PropertyList.plist */; };
 		7FF7B5261BE791EA003A3BE3 /* Directions.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7FF7B5251BE78EFC003A3BE3 /* Directions.geojson */; };
+		7FF7B52A1BE7B469003A3BE3 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7B5291BE7B469003A3BE3 /* Cell.m */; };
+		7FF7B52D1BE7B4A4003A3BE3 /* UIView+UITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7B52C1BE7B4A4003A3BE3 /* UIView+UITableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,10 @@
 		7FF7B5211BE78E5F003A3BE3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7FF7B5231BE78EC4003A3BE3 /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
 		7FF7B5251BE78EFC003A3BE3 /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
+		7FF7B5281BE7B469003A3BE3 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		7FF7B5291BE7B469003A3BE3 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		7FF7B52B1BE7B4A4003A3BE3 /* UIView+UITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UITableViewCell.h"; sourceTree = "<group>"; };
+		7FF7B52C1BE7B4A4003A3BE3 /* UIView+UITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UITableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		7FF7B4F71BE78DB0003A3BE3 /* MapTestProject */ = {
 			isa = PBXGroup;
 			children = (
+				7FF7B5271BE7B434003A3BE3 /* Cell */,
 				7FF7B4FC1BE78DB0003A3BE3 /* AppDelegate.h */,
 				7FF7B4FD1BE78DB0003A3BE3 /* AppDelegate.m */,
 				7FF7B4FF1BE78DB0003A3BE3 /* MasterViewController.h */,
@@ -132,6 +139,17 @@
 				7FF7B5161BE78DB0003A3BE3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FF7B5271BE7B434003A3BE3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7FF7B5281BE7B469003A3BE3 /* Cell.h */,
+				7FF7B5291BE7B469003A3BE3 /* Cell.m */,
+				7FF7B52B1BE7B4A4003A3BE3 /* UIView+UITableViewCell.h */,
+				7FF7B52C1BE7B4A4003A3BE3 /* UIView+UITableViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF7B52A1BE7B469003A3BE3 /* Cell.m in Sources */,
 				7FF7B4FE1BE78DB0003A3BE3 /* AppDelegate.m in Sources */,
 				7FF7B5011BE78DB0003A3BE3 /* MasterViewController.m in Sources */,
 				7FF7B4FB1BE78DB0003A3BE3 /* main.m in Sources */,
+				7FF7B52D1BE7B4A4003A3BE3 /* UIView+UITableViewCell.m in Sources */,
 				7FF7B5041BE78DB0003A3BE3 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

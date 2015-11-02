@@ -8,10 +8,13 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "Cell.h"
 
 @interface MasterViewController ()
 
-@property NSMutableArray *objects;
+@property NSMutableArray *objectsJSON;
+@property NSMutableArray *objectsPlist;
+
 @end
 
 @implementation MasterViewController
@@ -27,26 +30,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.objectsJSON = [[NSMutableArray alloc] init];
+    
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    
-    NSURL *path =  [[NSBundle mainBundle] URLForResource:@"Directions" withExtension:@"geojson"];
-    NSData *data = [NSData dataWithContentsOfURL:path];
-    NSError *error = nil;
-    NSArray * array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    if (error == nil) {
-        NSLog(@"Json:\n%@", array);
-    } else {
-        NSLog(@"error %@", [error localizedDescription]);
-    }
-    
-    path = [[NSBundle mainBundle] URLForResource:@"PropertyList" withExtension:@"plist"];
-    NSArray *dict = [NSArray arrayWithContentsOfURL:path];
-    NSLog(@"Plist:\n%@", dict);
+    self.objectsJSON = [[NSMutableArray alloc] initWithArray:[self getJSON]];
+    self.objectsPlist = [[NSMutableArray alloc] initWithArray:[self getPlist]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,12 +48,39 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
+//    if (!self.objects) {
+//        self.objects = [[NSMutableArray alloc] init];
+//    }
+//    [self.objects insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (NSArray*)getJSON {
+    
+    NSURL *path =  [[NSBundle mainBundle] URLForResource:@"Directions" withExtension:@"geojson"];
+    NSData *data = [NSData dataWithContentsOfURL:path];
+    NSError *error = nil;
+    NSArray * array = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    
+    if (error == nil) {
+        NSLog(@"Json:\n%@", array);
     }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    else {
+        NSLog(@"error %@", [error localizedDescription]);
+    }
+    
+    return array;
+}
+
+- (NSArray*)getPlist {
+    
+    NSURL *path =  [[NSBundle mainBundle] URLForResource:@"Directions" withExtension:@"geojson"];
+    path = [[NSBundle mainBundle] URLForResource:@"PropertyList" withExtension:@"plist"];
+    NSArray *dict = [NSArray arrayWithContentsOfURL:path];
+    NSLog(@"Plist:\n%@", dict);
+    
+    return dict;
 }
 
 #pragma mark - Segues
@@ -68,7 +88,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        NSDate *object = self.objectsJSON[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -83,15 +103,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.objectsJSON.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    
+    static NSString* identifier = @"Cell";
+    
+    Cell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    NSDictionary* dictionary = [self.objectsJSON objectAtIndex:indexPath.row];
+    
+    cell.cityTextLable.text = [dictionary objectForKey:@"name"];
+    
     return cell;
+    
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,7 +127,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
+        [self.objectsJSON removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

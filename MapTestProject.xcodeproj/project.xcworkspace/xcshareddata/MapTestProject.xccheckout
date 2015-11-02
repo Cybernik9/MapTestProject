@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2BC1F908-F8D6-4A74-84AE-B602139F25EF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BA70591EB45AEC87CE6C56B9FD4CE1FA2C90FE24</key>
+		<string>https://github.com/Cybernik9/MapTestProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MapTestProject.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BA70591EB45AEC87CE6C56B9FD4CE1FA2C90FE24</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Cybernik9/MapTestProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BA70591EB45AEC87CE6C56B9FD4CE1FA2C90FE24</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BA70591EB45AEC87CE6C56B9FD4CE1FA2C90FE24</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MapTestProject</string>
+		</dict>
+	</array>
+</dict>
+</plist>

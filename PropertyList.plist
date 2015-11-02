@@ -11,12 +11,12 @@
 		<real>24.654</real>
 	</dict>
 	<dict>
-		<key>New item - 3</key>
-		<string></string>
-		<key>New item</key>
-		<string></string>
-		<key>New item - 2</key>
-		<string></string>
+		<key>name</key>
+		<string>Kiev</string>
+		<key>lat</key>
+		<real>50.449708</real>
+		<key>long</key>
+		<real>30.534037</real>
 	</dict>
 </array>
 </plist>

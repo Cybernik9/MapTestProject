@@ -3,5 +3,11 @@
  "name": "Lviv",
  "lat": 123.12,
  "long": 24
+ },
+ 
+ {
+ "name": "Kiev",
+ "lat": 12.12,
+ "long": 244
  }
  ]

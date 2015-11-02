@@ -70,30 +70,50 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="lcC-Q8-0cc" customClass="Cell">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcC-Q8-0cc" id="fgc-Bf-psi">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-RT-7YY">
+                                            <rect key="frame" x="8" y="11" width="123" height="29"/>
+                                            <segments>
+                                                <segment title="JSON"/>
+                                                <segment title="Plist"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="actionJSONPlist:" destination="lcC-Q8-0cc" eventType="valueChanged" id="eU5-ED-llu"/>
+                                            </connections>
+                                        </segmentedControl>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M5-ib-TAC">
+                                            <rect key="frame" x="139" y="11" width="453" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="XYo-RT-7YY" firstAttribute="leading" secondItem="fgc-Bf-psi" secondAttribute="leadingMargin" id="Dt1-4Q-xEG"/>
+                                        <constraint firstAttribute="centerX" secondItem="9M5-ib-TAC" secondAttribute="centerX" constant="-65.5" id="ElT-kk-6WM"/>
+                                        <constraint firstItem="XYo-RT-7YY" firstAttribute="top" secondItem="fgc-Bf-psi" secondAttribute="topMargin" constant="3" id="L1k-r7-iPT"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="leading" secondItem="XYo-RT-7YY" secondAttribute="trailing" constant="8" id="jxH-CP-OY1"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="centerY" secondItem="XYo-RT-7YY" secondAttribute="centerY" constant="1" id="mzV-IH-PWY"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="trailing" secondItem="fgc-Bf-psi" secondAttribute="trailingMargin" id="rsX-GA-bj5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="XYo-RT-7YY" secondAttribute="bottom" constant="2" id="sbA-dL-tmS"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="bottom" secondItem="fgc-Bf-psi" secondAttribute="bottomMargin" id="tDT-tj-x0k"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="leading" secondItem="XYo-RT-7YY" secondAttribute="trailing" constant="8" id="vD5-PE-Rif"/>
+                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="top" secondItem="fgc-Bf-psi" secondAttribute="topMargin" constant="3" id="wIu-BO-1bw"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                    <outlet property="JSONOrPlist" destination="XYo-RT-7YY" id="1f5-Gx-b0l"/>
+                                    <outlet property="cityTextLable" destination="9M5-ib-TAC" id="3rI-ee-PjS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,7 +145,4 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
-    </inferredMetricsTieBreakers>
 </document>
