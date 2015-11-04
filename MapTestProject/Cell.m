@@ -26,9 +26,9 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)actionJSONPlist:(id)sender {
+- (IBAction)actionJSONPlistSegmented:(id)sender {
     
-    NSLog(@"%ld", (long)[sender tag]);
+    NSLog(@"%ld", (long)[sender selectedSegmentIndex]);
 }
 
 @end

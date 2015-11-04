@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -11,6 +12,7 @@
                 <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
@@ -32,10 +34,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gju-43-XSh">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gju-43-XSh">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="JEX-9P-axG" id="KUz-F7-ERQ"/>
+                                </connections>
                             </mapView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="gju-43-XSh" secondAttribute="bottom" id="EP9-Ql-Qhb"/>
@@ -47,6 +54,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="gju-43-XSh" id="oxz-Dt-zIf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,47 +83,40 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="50" id="lcC-Q8-0cc" customClass="Cell">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcC-Q8-0cc" id="fgc-Bf-psi">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-RT-7YY">
-                                            <rect key="frame" x="8" y="11" width="123" height="29"/>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-Xb-Mys">
+                                            <rect key="frame" x="8" y="11" width="584" height="29"/>
+                                            <animations/>
                                             <segments>
                                                 <segment title="JSON"/>
                                                 <segment title="Plist"/>
                                             </segments>
                                             <connections>
-                                                <action selector="actionJSONPlist:" destination="lcC-Q8-0cc" eventType="valueChanged" id="eU5-ED-llu"/>
+                                                <action selector="actionJSONPlistSegmented:" destination="lcC-Q8-0cc" eventType="valueChanged" id="x4E-lB-60Z"/>
                                             </connections>
                                         </segmentedControl>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M5-ib-TAC">
-                                            <rect key="frame" x="139" y="11" width="453" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
+                                    <animations/>
                                     <constraints>
-                                        <constraint firstItem="XYo-RT-7YY" firstAttribute="leading" secondItem="fgc-Bf-psi" secondAttribute="leadingMargin" id="Dt1-4Q-xEG"/>
-                                        <constraint firstAttribute="centerX" secondItem="9M5-ib-TAC" secondAttribute="centerX" constant="-65.5" id="ElT-kk-6WM"/>
-                                        <constraint firstItem="XYo-RT-7YY" firstAttribute="top" secondItem="fgc-Bf-psi" secondAttribute="topMargin" constant="3" id="L1k-r7-iPT"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="leading" secondItem="XYo-RT-7YY" secondAttribute="trailing" constant="8" id="jxH-CP-OY1"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="centerY" secondItem="XYo-RT-7YY" secondAttribute="centerY" constant="1" id="mzV-IH-PWY"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="trailing" secondItem="fgc-Bf-psi" secondAttribute="trailingMargin" id="rsX-GA-bj5"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="XYo-RT-7YY" secondAttribute="bottom" constant="2" id="sbA-dL-tmS"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="bottom" secondItem="fgc-Bf-psi" secondAttribute="bottomMargin" id="tDT-tj-x0k"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="leading" secondItem="XYo-RT-7YY" secondAttribute="trailing" constant="8" id="vD5-PE-Rif"/>
-                                        <constraint firstItem="9M5-ib-TAC" firstAttribute="top" secondItem="fgc-Bf-psi" secondAttribute="topMargin" constant="3" id="wIu-BO-1bw"/>
+                                        <constraint firstItem="g2X-Xb-Mys" firstAttribute="leading" secondItem="fgc-Bf-psi" secondAttribute="leadingMargin" id="5d5-dg-3wf"/>
+                                        <constraint firstAttribute="centerX" secondItem="g2X-Xb-Mys" secondAttribute="centerX" id="AG9-Jn-Kdm"/>
+                                        <constraint firstItem="g2X-Xb-Mys" firstAttribute="top" secondItem="fgc-Bf-psi" secondAttribute="topMargin" constant="3" id="u2i-1R-QoG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="g2X-Xb-Mys" secondAttribute="bottom" constant="2" id="wwE-wn-Jee"/>
+                                        <constraint firstItem="g2X-Xb-Mys" firstAttribute="trailing" secondItem="fgc-Bf-psi" secondAttribute="trailingMargin" id="zk1-Ns-tQf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <animations/>
                                 <connections>
-                                    <outlet property="JSONOrPlist" destination="XYo-RT-7YY" id="1f5-Gx-b0l"/>
-                                    <outlet property="cityTextLable" destination="9M5-ib-TAC" id="3rI-ee-PjS"/>
+                                    <outlet property="JSONOrPlisteSgmented" destination="g2X-Xb-Mys" id="8iq-6h-8DY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -135,6 +138,7 @@
                 <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="JEX-9P-axG" kind="relationship" relationship="rootViewController" id="GKi-kA-LjT"/>

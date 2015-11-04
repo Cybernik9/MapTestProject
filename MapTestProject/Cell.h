@@ -10,9 +10,7 @@
 
 @interface Cell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *cityTextLable;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *JSONOrPlist;
-
-- (IBAction)actionJSONPlist:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *JSONOrPlisteSgmented;
+- (IBAction)actionJSONPlistSegmented:(id)sender;
 
 @end
